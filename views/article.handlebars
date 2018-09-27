@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                {{article.title}}
+            </p>
+            {{!-- <a href="#" class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+            </a> --}}
+        </header>
+        <div class="card-content">
+            <div class="content">
+                {{body}}
+
+            </div>
+        </div>
+        <footer class="card-footer">
+            <div class="">
+                {{!-- Need to connect the button to the modal --}}
+                <a class="modalButton card-footer-item button is-rounded">Make a Comment</a>
+            </div>
+        </footer>
+
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="field">
+                    <label class="label">Comment</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Text input">
+                    </div>
+                    <p class="help">Make a comment</p>
+                </div>
+                {{!-- Submit Button --}}
+                <div class="control">
+                    <button class="button is-primary">Save</button>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+    </div>
+</div>
+{{!-- comments --}}
+<div class="row">
+    <h5>Comments:</h5>
+    {{#if article.comment}}
+    {{#eacj article.comment}}
+    <div class="card">
+        <div class="card-content">
+            <div class="content">
+                <p id="nameComment">{{name}}</p>
+                <p>{{body}}</p>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No Comments Yet.</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
