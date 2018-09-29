@@ -25,7 +25,7 @@ router.get('/scrape', function(req, res){
         var $ = cheerio.load(html);
         var titlesArray = [];
         //Now, we grab every article
-        $('.c-entry-box--compact__title').rsch(function(i,element){
+        $('.c-entry-box--compact__title').each(function(i,element){
             //Save an empty result object
             var result = {};
 
@@ -114,7 +114,7 @@ router.get('/clearAll', function(req, res) {
 
 router.get('/readArticle/:id', function(req, res){
     var articleId = req.params.id;
-    varhbsObj = {
+    var hbsObj = {
         article: [],
         body: []
     };

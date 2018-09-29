@@ -28,7 +28,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -36,7 +36,7 @@ db.once('open', function() {
     console.log('Connected to Mongoose!')
 });
 
-var routes = require('.controller/controller.js');
+var routes = require('./controller/controller');
 app.use('/', routes);
 
 var port = process.env.PORT || 3000;

@@ -1,0 +1,137 @@
+<div class="columns">
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                {{article.title}}
+            </p>
+        </header>
+        <div class="card-content">
+            <div class="content">
+                {{body}}
+
+            </div>
+        </div>
+        <footer class="card-footer">
+            <div class="">
+                {{!-- Need to connect the button to the modal --}}
+                <a class="modalButton card-footer-item button is-rounded">Make a Comment</a>
+            </div>
+        </footer>
+
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="field">
+                    <label class="label">Comment</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Text input">
+                    </div>
+                    <p class="help">Make a comment</p>
+                </div>
+                {{!-- Submit Button --}}
+                <div class="control">
+                    <button class="button is-primary">Save</button>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+    </div>
+</div>
+{{!-- comments --}}
+<div class="columns">
+    <h5>Comments:</h5>
+    {{#if article.comment}}
+    {{#each article.comment}}
+    <div class="card">
+        <div class="card-content">
+            <div class="content">
+                <p id="nameComment">{{name}}</p>
+                <p>{{body}}</p>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No Comments Yet.</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script>
+    $(".modalButton").on("click", function () {
+        $(".modal").addClass("is-active")
+    })
+
+    $(".modal-close").on("click", function () {
+        $(".modal").removeClass("is-active");
+    })
+
+    $(".saveButton").on
+</script>
+
+{{!-- <div class="columns
+">
+    <div class="card">
+
+
+
+        <div class="card-content">
+            <div class="content">
+                <h3>{{article.title}}</h3>
+                {{body}}
+
+            </div>
+        </div>
+        <footer class="card-footer">
+            <div class="">
+                {{!-- Need to connect the button to the modal --}}
+                <a class="modalButton card-footer-item button is-rounded">Make a Comment</a>
+            </div>
+        </footer>
+
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <h2 class="title">Comment on this Article:</h2>
+                {{!-- <form action="/comment/{{article._id}}" method="POST" class="card-content"> 
+                <div class="field">
+                    <label class="label">Comment on this Article:</label>
+                    <div class="control">
+                        <textarea class="textarea" type="text" placeholder="Rounded Textarea">
+                    </div>
+                    <p class="help">Make a comment</p>
+                </div>
+                {{!-- Submit Button --}}
+                <div class="control">
+                    <button class="saveButton is-primary">Save</button>
+                </div>
+                {{!-- </form> --}}
+            </div>
+            
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+    </div>
+</div>
+{{!-- comments --}}
+<div class="columns
+">
+    <h5>Comments:</h5>
+    {{#if article.comment}}
+    {{#each article.comment}}
+    <div class="card">
+        <div class="card-content">
+            <div class="content">
+                <p id="nameComment">{{name}}</p>
+                <p>{{body}}</p>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No Comments Yet.</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
+ --}}
