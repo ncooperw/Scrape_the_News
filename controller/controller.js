@@ -2,6 +2,12 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var bodyParser= require('body-parser');
+var app = express();
+
+//Setting up bsic middleware for all Express requests
+app.use(bodyParser.urlencoded({ extended: false })); //Parses urlencoded bodies
+app.use(bodyParser.json()); //send JSON responses
 
 //require request and cheerio to scrape
 var request = require('request');
@@ -149,7 +155,7 @@ router.post('/comment/:id', function(req, res) {
     var user = req.body.name;
     var content = req.body.comment;
     var articleId = req.params.id;
-
+console.log("made a comment" + user + content);
     //submitted form
     const commentObj = {
         name: user,

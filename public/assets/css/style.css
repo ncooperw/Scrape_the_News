@@ -1,0 +1,49 @@
+body {
+    background: url('/public/assets/img/modern-2086454_1280.png') repeat;
+    background-size: 600px;
+    font-family: 'Aldrich', sans-serif;
+    /* font-family: 'Orbitron', sans-serif;
+    
+    font-family: 'Aldrich', sans-serif; */
+    font-size: 16px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.articleBody{
+    height: 200px;
+    font-family: 'Josefin Slab', serif;
+    overflow-y: scroll;
+    line-height: 150%
+}
+
+.articleCard{
+    font-family: 'Josefin Slab', serif;
+}
+
+.heroText{
+    font-family: 'Aldrich', sans-serif;
+}
+
+#nameComment{
+    font-weight: bold;
+    background: #ec407a;
+    color: white;
+}
+
+.input-field input[type=text]:focus +label {
+    color: #e91e63;
+}
+
+.input-field input[type=text]:focus{
+    border-bottom: 1px solid #e91e63;
+    box-shadow: 0 1px 0 0 #000;
+}
+.input-field .prefix.active {
+    color: #ec407a;
+}
