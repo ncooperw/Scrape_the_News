@@ -1,53 +1,47 @@
-{{!-- <div class=class="has-navbar-fixed-top"></div> --}}
-<div class="columns">
-    <div class="container">
-        <div class="card">
-            <h3 class="title is-centered articleBody">{{article.title}}</h3>
-            <div class="card-header"></div>
-            <h5 class="card-content articleBody">{{body}}</h5>
-        </div>
+<div class=class="has-navbar-fixed-top"></div>
+<div class="tile">
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
+            <p class="title">{{article.title}}</p>
+            <p class="subtitle">{{body}}</p>
+        </article>
     </div>
 </div>
-
-
-<div class="columns">
-    <div class="container">
-        <div class="column">
-            <div class="panel">
-                <div class="panel-heading is-danger">
-                    <h5 class="">Comment on this Article:</h5>
-                </div>
-                <div class="field panel-block">
-                    <form action="/comment/{{article._id}}" method="POST" class="commentForm">
-                        <div class="control input-field">
-                            <i class="far fa-user"></i>
-                            <input id="icon_prefix" type="text" placeholder="Name" name="name" class="validate active is-warning">
-                        </div>
-                        
-                        <div class="control input-field">
-                            <i class="far fa-comments"></i>
-                            <textarea class="textarea is-warning validate active" placeholder="comment"></textarea>
-                            {{!-- <input id="input-field" type="textarea" placeholder="Comment" name="comment" class="validate active"> --}}
-                        </div>
-
-                        <!-- Submit Button -->
-                        
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-6">
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-info">
+                <p class="title">Comment on this Article:</p>
+                <div class="content">
+                    <form action="/comment/{{article._id}}" method="POST" class="card-panel">
+                        <div class="row">
                             <div class="input-field">
-                                <input class="button is-warning add-comment-button" type="submit" value="Submit input">
+                                <i class="far fa-user"></i><p class="subtitle">Name</p>
+                                <input id="icon_prefix" type="text" placeholder="Name" name="name" class="validate active">
                             </div>
-                        
+                            <div class="input-field">
+                                <i class="far fa-comments"></i><p class="subtitle">Comment</p>
+                                
+                                <input id="textarea" type="text" placeholder="Comment" name="comment" class="validate active">
+                            </div>
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="input-field">
+                                <center><input class="button is-warning is-rounded add-comment-button" type="submit"
+                                        value="Submit"></center>
+                            </div>
+                        </div>
                     </form>
                 </div>
-            </div>
+            </article>
         </div>
-
-
-
-        {{!-- comments go here --}}
-        <div class="column">
-            <div class="panel">
-                <div class="panel-"
-                <h5 class="">Comments:</h5>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-danger">
+            <p class="title">Comments:</p>
+            <div class="content">
+                <!-- Content -->
                 {{#if article.comment}}
                 {{#each article.comment}}
                 <div class="card">
@@ -59,29 +53,6 @@
                 <p>No Comments Yet.</p>
                 {{/if}}
             </div>
-        </div>
+        </article>
     </div>
 </div>
-
-{{!-- <div class="row">
-  <div class="col s2"></div>
-   <form action="/comment/{{article._id}}" method="POST" class="card-panel col s8">
-    <h5>Comment on this Article:</h5>
-      <div class="row">
-        <div class="input-field">
-          <i class="material-icons prefix">perm_identity</i>
-          <input id="icon_prefix" type="text" placeholder="Name" name="name" class="validate active">
-        </div>
-        <div class="input-field">
-          <i class="material-icons prefix">comment</i>
-          <input id="icon_telephone" type="text" placeholder="Comment" name="comment" class="validate active">
-        </div>
-      </div>
-       <!-- Submit Button -->
-      <div class="row">
-        <div class="input-field">
-        <center><input class="btn add-comment-button pink lighten-1" type="submit" value="Submit"></center>
-        </div>
-      </div>
-    </form>
-</div> --}}
