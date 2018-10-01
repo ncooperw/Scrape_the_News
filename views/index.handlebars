@@ -1,25 +1,32 @@
+<head>
+    <link href="./css/style.css" rel="stylesheet">
+</head>
 
-<section class="hero heroText is-medium is-warning is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">Read the Latest from 'The Verge' in Tech</h1>
-            <h2 class="subtitle">Click 'Scrape' to get the latest articles</h2>
-            <p class="control"><a class="button is-dark is-outlined is-rounded" href="/scrape"><span>Scrape</span></a></p>
+<body>
+    <section class="hero heroText is-warning is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-center">Read the Latest from 'The Verge' in Tech</h1>
+                <h2 class="subtitle">Click 'Scrape' to get the latest articles</h2>
+                <p class="control"><a class="button is-dark is-outlined is-rounded" href="/scrape"><span>Scrape</span></a></p>
+            </div>
         </div>
+    </section>
+<section>
+    
+    {{#each article}}
+    <div class="tile box is-light articleBox">
+
+        <h1 class="title is-centered">
+            {{this.title}}
+        </h1>
+        <a href="/readArticle/{{this._id}}" class="button is-dark is-outlined is-rounded is-centered" id="btnRead">Read
+            Article</a>
+
     </div>
+    {{/each}}
 </section>
 
-<div class="columns">
-    <div class="column">
-    <div class="card articleCard">
-        {{#each article}}
-        <div class="card-content">
-            <h4 class="title">{{this.title}}</h4>
-            {{!-- goes to article.handlebars --}}
-            <a href="/readArticle/{{this._id}}" class="button is-dark is-outlined is-rounded" id="btnRead">Read Article</a>
-        </div>
-        {{/each}}
-    </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</body>

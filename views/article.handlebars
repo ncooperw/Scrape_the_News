@@ -1,7 +1,7 @@
 <div class=class="has-navbar-fixed-top"></div>
 <div class="tile">
     <div class="tile is-parent">
-        <article class="tile is-child notification is-primary">
+        <article class="tile is-child notification ">
             <p class="title">{{article.title}}</p>
             <p class="subtitle">{{body}}</p>
         </article>
@@ -16,19 +16,20 @@
                     <form action="/comment/{{article._id}}" method="POST" class="card-panel">
                         <div class="row">
                             <div class="input-field">
-                                <i class="far fa-user"></i><p class="subtitle">Name</p>
-                                <input id="icon_prefix" type="text" placeholder="Name" name="name" class="validate active">
+                                <p class="subtitle"><span class="icon has-text-warning"><i class="far fa-user"></i></span> Name</p>
+                                <input id="name" type="text" placeholder="Name" name="name" class=" input validate active is-focused">
                             </div>
+                            <br>
                             <div class="input-field">
-                                <i class="far fa-comments"></i><p class="subtitle">Comment</p>
+                                <p class="subtitle"><span class="icon has-text-warning"><i class="far fa-comments"></i></span> Comment</p>
                                 
-                                <input id="textarea" type="text" placeholder="Comment" name="comment" class="validate active">
+                                <textarea id="textarea" type="text" placeholder="Comment" name="comment" class="textarea validate active is-rounded is-focused"></textarea>
                             </div>
                         </div>
                         <!-- Submit Button -->
                         <div class="row">
                             <div class="input-field">
-                                <center><input class="button is-warning is-rounded add-comment-button" type="submit"
+                                <center><input class="button is-dark is-outlined is-rounded add-comment-button" type="submit"
                                         value="Submit"></center>
                             </div>
                         </div>
@@ -44,9 +45,11 @@
                 <!-- Content -->
                 {{#if article.comment}}
                 {{#each article.comment}}
-                <div class="card">
+                <div class="card is-rounded">
+                    <button class="delete"></button>
                     <p id="nameComment">{{name}}</p>
                     <p>{{body}}<p>
+                        
                 </div>
                 {{/each}}
                 {{else}}
